@@ -587,38 +587,25 @@
             color: var(--pink)
         }
 
-        /* manifesto: texto em duas colunas e as quatro composições lado a lado */
+        /* manifesto: bloco de texto a esquerda, as quatro composicoes a direita */
         .mf {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: clamp(30px, 4.4vw, 58px);
+            grid-template-columns: 1.04fr .96fr;
+            gap: clamp(28px, 4.6vw, 64px);
+            align-items: center;
             position: relative;
             z-index: 1;
         }
 
-        .mf__text {
-            display: grid;
-            grid-template-columns: 1.05fr .95fr;
-            gap: clamp(24px, 4vw, 64px);
-            align-items: end;
-        }
-
-        .mf__text .manifesto__note {
-            margin-top: 0
-        }
-
         .mf__strip {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 100%;
-            gap: clamp(4px, 1.2vw, 20px);
-            align-items: end;
-            height: clamp(150px, 27vw, 400px);
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(6px, 1.2vw, 18px);
         }
 
         .mf__strip figure {
             margin: 0;
-            height: 100%;
+            aspect-ratio: 1 / 1;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -1842,8 +1829,7 @@
             .hero__grid,
             .split,
             .sig,
-            .mf,
-            .mf__text {
+            .mf {
                 grid-template-columns: 1fr
             }
 
