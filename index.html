@@ -559,15 +559,6 @@
         }
 
         /* ---------- manifesto ---------- */
-        .mf {
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: clamp(28px, 5vw, 68px);
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
         .manifesto .statement {
             font-size: clamp(1.9rem, 4.3vw, 3.2rem);
             max-width: 24ch;
@@ -596,27 +587,49 @@
             color: var(--pink)
         }
 
-        /* manifesto: as duas imagens de IA que sobraram, lado a lado, inteiras */
-        .mf__duo {
+        /* manifesto: texto em duas colunas e as quatro composições lado a lado */
+        .mf {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(10px, 1.6vw, 20px);
+            grid-template-columns: 1fr;
+            gap: clamp(30px, 4.4vw, 58px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .mf__text {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: clamp(24px, 4vw, 64px);
             align-items: end;
-            margin-top: clamp(10px, 2vw, 18px);
         }
 
-        .mf__duo figure {
+        .mf__text .manifesto__note {
+            margin-top: 0
+        }
+
+        .mf__strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 100%;
+            gap: clamp(4px, 1.2vw, 20px);
+            align-items: end;
+            height: clamp(150px, 27vw, 400px);
+        }
+
+        .mf__strip figure {
             margin: 0;
-            border-radius: var(--r-md);
-            overflow: hidden;
-            border: 1px solid var(--line);
-            background: var(--white);
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
         }
 
-        .mf__duo img {
+        .mf__strip img {
             display: block;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: contain;
+            object-position: center bottom;
         }
 
         /* ---------- pillars ---------- */
@@ -1829,7 +1842,8 @@
             .hero__grid,
             .split,
             .sig,
-            .mf {
+            .mf,
+            .mf__text {
                 grid-template-columns: 1fr
             }
 
@@ -2138,27 +2152,37 @@
         <section id="manifesto" class="band band--white manifesto">
             <span class="ghost" aria-hidden="true">01</span>
             <div class="wrap mf">
-                <div class="rv">
-                    <span class="label">Manifesto</span>
-                    <p class="statement" style="margin-top:20px">
-                        <span class="grad-text">Não existe performance completa</span>
-                        quando o corpo e a mente treinam separados.
-                    </p>
-                    <hr class="rule">
+                <div class="rv mf__text">
+                    <div>
+                        <span class="label">Manifesto</span>
+                        <p class="statement" style="margin-top:20px">
+                            <span class="grad-text">Não existe performance completa</span>
+                            quando o corpo e a mente treinam separados.
+                        </p>
+                        <hr class="rule">
+                    </div>
                     <p class="manifesto__note">Por isso aqui as duas coisas se treinam juntas: força, mobilidade,
                         disciplina e cabeça. Grandes atletas são construídas antes de entrar em quadra — e o <span
                             class="grad-text" style="font-weight:700">próximo nível</span> não acontece por acaso.
                         <em>Ele é construído.</em>
                     </p>
                 </div>
-                <div class="rv mf__duo" data-d="2">
+                <div class="rv mf__strip" data-d="2">
                     <figure>
-                        <img src="./img/web/ai-medball.webp" width="429" height="876" loading="lazy" decoding="async"
+                        <img src="./img/web/img3.jpg" width="695" height="967" loading="lazy" decoding="async"
+                            alt="Atleta do Next Mind treinando com faixa elástica">
+                    </figure>
+                    <figure>
+                        <img src="./img/web/img6.jpg" width="1000" height="1261" loading="lazy" decoding="async"
+                            alt="Atleta do Next Mind em afundo com kettlebell">
+                    </figure>
+                    <figure>
+                        <img src="./img/web/R-medball.webp" width="454" height="984" loading="lazy" decoding="async"
                             alt="Atleta do Next Mind em agachamento com medicine ball">
                     </figure>
                     <figure>
-                        <img src="./img/web/ai-rede.webp" width="355" height="795" loading="lazy" decoding="async"
-                            alt="Atleta do Next Mind em suspensão perto da rede">
+                        <img src="./img/web/R-rede.webp" width="507" height="1130" loading="lazy" decoding="async"
+                            alt="Atleta do Next Mind bloqueando na rede">
                     </figure>
                 </div>
             </div>
@@ -2178,8 +2202,8 @@
                     <article class="pillar rv" data-d="1">
                         <span class="pillar__blob" aria-hidden="true"></span>
                         <figure class="pillar__fig">
-                            <img src="./img/web/ai-prancha.jpg" width="767" height="967" loading="lazy"
-                                decoding="async" style="--pos:52% 30%"
+                            <img src="./img/web/ai-prancha.jpg" width="767" height="967" loading="lazy" decoding="async"
+                                style="--pos:52% 30%"
                                 alt="Atleta do Next Mind na escada de agilidade, no treino funcional">
                         </figure>
                         <span class="pillar__n">01 / Funcional</span>
@@ -2191,9 +2215,8 @@
                     <article class="pillar rv" data-d="2">
                         <span class="pillar__blob" aria-hidden="true"></span>
                         <figure class="pillar__fig">
-                            <img src="./img/web/ai-time.webp" width="475" height="1111" loading="lazy"
-                                decoding="async" style="--pos:50% 20%"
-                                alt="Atletas do Next Mind com as mãos unidas antes do treino">
+                            <img src="./img/web/img5.png" width="475" height="10" loading="lazy" decoding="async"
+                                style="--pos:50% 20%" alt="Atletas do Next Mind com as mãos unidas antes do treino">
                         </figure>
                         <span class="pillar__n">02 / Mindset</span>
                         <span class="pillar__mark" aria-hidden="true"
@@ -2205,9 +2228,8 @@
                     <article class="pillar rv" data-d="3">
                         <span class="pillar__blob" aria-hidden="true"></span>
                         <figure class="pillar__fig">
-                            <img src="./img/web/ai-saque.webp" width="273" height="461" loading="lazy"
-                                decoding="async" style="--pos:50% 16%"
-                                alt="Atleta do Next Mind no salto do saque">
+                            <img src="./img/web/img2.png" width="273" height="461" loading="lazy" decoding="async"
+                                style="--pos:50% 16%" alt="Atleta do Next Mind no salto do saque">
                         </figure>
                         <span class="pillar__n">03 / Performance</span>
                         <span class="pillar__mark" aria-hidden="true"></span>
@@ -2246,8 +2268,9 @@
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-08.jpeg"
                             aria-label="Ampliar foto: tÃªnis e bola de vÃ´lei na quadra">
-                            <img src="./img/galeria/galeria-08.jpeg" alt="TÃªnis e bola de vÃ´lei na quadra do CT Next Mind" width="1280"
-                                height="1024" loading="lazy" decoding="async">
+                            <img src="./img/galeria/galeria-08.jpeg"
+                                alt="TÃªnis e bola de vÃ´lei na quadra do CT Next Mind" width="1280" height="1024"
+                                loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-03.jpeg"
                             aria-label="Ampliar foto: atleta do CT Next Mind em quadra">
@@ -2256,18 +2279,19 @@
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-02.jpeg"
                             aria-label="Ampliar foto: Monique PavÃ£o em quadra">
-                            <img src="./img/galeria/galeria-02.jpeg" alt="Monique PavÃ£o, do CT Next Mind, em quadra" width="1024"
-                                height="1280" loading="lazy" decoding="async">
+                            <img src="./img/galeria/galeria-02.jpeg" alt="Monique PavÃ£o, do CT Next Mind, em quadra"
+                                width="1024" height="1280" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/faixa-03.jpeg"
                             aria-label="Ampliar foto: atletas em treino de forÃ§a">
-                            <img src="./img/galeria/faixa-03.jpeg" alt="Atletas do CT Next Mind em treino de forÃ§a" width="1280"
-                                height="1024" loading="lazy" decoding="async">
+                            <img src="./img/galeria/faixa-03.jpeg" alt="Atletas do CT Next Mind em treino de forÃ§a"
+                                width="1280" height="1024" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-11.jpeg"
                             aria-label="Ampliar foto: atleta recebendo a bola">
-                            <img src="./img/galeria/galeria-11.jpeg" alt="Atleta do CT Next Mind recebendo a bola em quadra" width="1280"
-                                height="1024" loading="lazy" decoding="async">
+                            <img src="./img/galeria/galeria-11.jpeg"
+                                alt="Atleta do CT Next Mind recebendo a bola em quadra" width="1280" height="1024"
+                                loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/faixa-02.jpeg"
                             aria-label="Ampliar foto: atleta do CT Next Mind em quadra">
@@ -2276,18 +2300,18 @@
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-01.jpeg"
                             aria-label="Ampliar foto: Monique PavÃ£o comemorando">
-                            <img src="./img/galeria/galeria-01.jpeg" alt="Monique PavÃ£o comemorando em quadra" width="720"
-                                height="1280" loading="lazy" decoding="async">
+                            <img src="./img/galeria/galeria-01.jpeg" alt="Monique PavÃ£o comemorando em quadra"
+                                width="720" height="1280" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/faixa-04.jpeg"
                             aria-label="Ampliar foto: atletas durante o jogo">
-                            <img src="./img/galeria/faixa-04.jpeg" alt="Atletas do CT Next Mind durante o jogo" width="1280"
-                                height="1024" loading="lazy" decoding="async">
+                            <img src="./img/galeria/faixa-04.jpeg" alt="Atletas do CT Next Mind durante o jogo"
+                                width="1280" height="1024" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-12.jpeg"
                             aria-label="Ampliar foto: atleta apÃ³s o jogo">
-                            <img src="./img/galeria/galeria-12.jpeg" alt="Atleta do CT Next Mind apÃ³s o jogo" width="1280"
-                                height="866" loading="lazy" decoding="async">
+                            <img src="./img/galeria/galeria-12.jpeg" alt="Atleta do CT Next Mind apÃ³s o jogo"
+                                width="1280" height="866" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-05.jpeg"
                             aria-label="Ampliar foto: atleta do CT Next Mind em aÃ§Ã£o">
@@ -2296,28 +2320,29 @@
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/faixa-05.jpeg"
                             aria-label="Ampliar foto: time do CT Next Mind reunido">
-                            <img src="./img/galeria/faixa-05.jpeg" alt="Time do CT Next Mind reunido em quadra" width="1280"
-                                height="850" loading="lazy" decoding="async">
+                            <img src="./img/galeria/faixa-05.jpeg" alt="Time do CT Next Mind reunido em quadra"
+                                width="1280" height="850" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-09.jpeg"
                             aria-label="Ampliar foto: atleta comemorando">
-                            <img src="./img/galeria/galeria-09.jpeg" alt="Atleta do CT Next Mind comemorando" width="1280"
-                                height="1024" loading="lazy" decoding="async">
+                            <img src="./img/galeria/galeria-09.jpeg" alt="Atleta do CT Next Mind comemorando"
+                                width="1280" height="1024" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-07.jpeg"
                             aria-label="Ampliar foto: atletas do CT Next Mind em treino">
-                            <img src="./img/galeria/galeria-07.jpeg" alt="Atletas do CT Next Mind em treino" width="1280"
-                                height="852" loading="lazy" decoding="async">
+                            <img src="./img/galeria/galeria-07.jpeg" alt="Atletas do CT Next Mind em treino"
+                                width="1280" height="852" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/faixa-06.jpeg"
                             aria-label="Ampliar foto: atletas no Arouca Barra Clube">
-                            <img src="./img/galeria/faixa-06.jpeg" alt="Atletas do CT Next Mind em treino no Arouca Barra Clube" width="1280"
-                                height="858" loading="lazy" decoding="async">
+                            <img src="./img/galeria/faixa-06.jpeg"
+                                alt="Atletas do CT Next Mind em treino no Arouca Barra Clube" width="1280" height="858"
+                                loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-04.jpeg"
                             aria-label="Ampliar foto: Monique PavÃ£o em retrato">
-                            <img src="./img/galeria/galeria-04.jpeg" alt="Monique PavÃ£o, do CT Next Mind, em retrato" width="1024"
-                                height="1280" loading="lazy" decoding="async">
+                            <img src="./img/galeria/galeria-04.jpeg" alt="Monique PavÃ£o, do CT Next Mind, em retrato"
+                                width="1024" height="1280" loading="lazy" decoding="async">
                         </button>
                         <button class="reel__item" type="button" data-full="./img/galeria/galeria-10.jpeg"
                             aria-label="Ampliar foto: atletas do CT Next Mind reunidas">
@@ -2330,15 +2355,18 @@
                             <img src="./img/galeria/faixa-01.jpeg" alt="" width="1024" height="1280" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-08.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-08.jpeg">
                             <img src="./img/galeria/galeria-08.jpeg" alt="" width="1280" height="1024" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-03.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-03.jpeg">
                             <img src="./img/galeria/galeria-03.jpeg" alt="" width="1061" height="1280" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-02.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-02.jpeg">
                             <img src="./img/galeria/galeria-02.jpeg" alt="" width="1024" height="1280" loading="lazy"
                                 decoding="async">
                         </button>
@@ -2346,7 +2374,8 @@
                             <img src="./img/galeria/faixa-03.jpeg" alt="" width="1280" height="1024" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-11.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-11.jpeg">
                             <img src="./img/galeria/galeria-11.jpeg" alt="" width="1280" height="1024" loading="lazy"
                                 decoding="async">
                         </button>
@@ -2354,7 +2383,8 @@
                             <img src="./img/galeria/faixa-02.jpeg" alt="" width="960" height="1280" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-01.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-01.jpeg">
                             <img src="./img/galeria/galeria-01.jpeg" alt="" width="720" height="1280" loading="lazy"
                                 decoding="async">
                         </button>
@@ -2362,11 +2392,13 @@
                             <img src="./img/galeria/faixa-04.jpeg" alt="" width="1280" height="1024" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-12.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-12.jpeg">
                             <img src="./img/galeria/galeria-12.jpeg" alt="" width="1280" height="866" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-05.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-05.jpeg">
                             <img src="./img/galeria/galeria-05.jpeg" alt="" width="920" height="1280" loading="lazy"
                                 decoding="async">
                         </button>
@@ -2374,11 +2406,13 @@
                             <img src="./img/galeria/faixa-05.jpeg" alt="" width="1280" height="850" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-09.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-09.jpeg">
                             <img src="./img/galeria/galeria-09.jpeg" alt="" width="1280" height="1024" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-07.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-07.jpeg">
                             <img src="./img/galeria/galeria-07.jpeg" alt="" width="1280" height="852" loading="lazy"
                                 decoding="async">
                         </button>
@@ -2386,11 +2420,13 @@
                             <img src="./img/galeria/faixa-06.jpeg" alt="" width="1280" height="858" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-04.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-04.jpeg">
                             <img src="./img/galeria/galeria-04.jpeg" alt="" width="1024" height="1280" loading="lazy"
                                 decoding="async">
                         </button>
-                        <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/galeria-10.jpeg">
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-10.jpeg">
                             <img src="./img/galeria/galeria-10.jpeg" alt="" width="799" height="799" loading="lazy"
                                 decoding="async">
                         </button>
