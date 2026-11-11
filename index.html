@@ -474,9 +474,17 @@
         .marquee__track {
             display: flex;
             align-items: center;
-            gap: 26px;
             width: max-content;
-            animation: slide 30s linear infinite
+            animation: slide 34s linear infinite;
+            will-change: transform
+        }
+
+        .marquee__group {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            padding-right: 26px;
+            flex: none
         }
 
         .marquee span {
@@ -588,63 +596,27 @@
             color: var(--pink)
         }
 
-        /* collage: three cut-outs standing on a soft blush card */
-        .mf__collage {
-            position: relative;
-            isolation: isolate;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: clamp(2px, 1vw, 12px);
-            height: clamp(310px, 34vw, 440px);
-            padding: 20px 12px 14px;
-            border-radius: var(--r-lg);
-            background: linear-gradient(168deg, #ffffff 0%, #fbeaf4 52%, #f1d6e9 100%);
+        /* manifesto: as duas imagens de IA que sobraram, lado a lado, inteiras */
+        .mf__duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(10px, 1.6vw, 20px);
+            align-items: end;
+            margin-top: clamp(10px, 2vw, 18px);
+        }
+
+        .mf__duo figure {
+            margin: 0;
+            border-radius: var(--r-md);
+            overflow: hidden;
             border: 1px solid var(--line);
-            margin-top: clamp(16px, 3vw, 30px);
+            background: var(--white);
         }
 
-        .mf__collage::after {
-            content: "";
-            position: absolute;
-            z-index: 0;
-            left: 8%;
-            right: 8%;
-            bottom: 14px;
-            height: 1.5px;
-            background: var(--grad);
-            opacity: .35;
-        }
-
-        .mf__collage figure {
-            position: relative;
-            z-index: 1;
-            flex: 1 1 0;
-            min-width: 0;
-            height: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-        }
-
-        .mf__collage img {
+        .mf__duo img {
             display: block;
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center bottom;
-            mix-blend-mode: multiply;
-        }
-
-        .mf__ball {
-            position: absolute;
-            z-index: 2;
-            top: 12px;
-            right: 14px;
-            width: clamp(44px, 5vw, 66px);
             height: auto;
-            opacity: .7;
-            transform: rotate(-14deg);
         }
 
         /* ---------- pillars ---------- */
@@ -733,23 +705,19 @@
 
         .pillar__fig {
             margin: -30px -28px 22px;
-            height: clamp(158px, 17vw, 200px);
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+            height: clamp(180px, 19vw, 232px);
             overflow: hidden;
-            background: radial-gradient(130% 140% at 50% 108%, #f9cfe4 0%, #eee4ff 46%, #ffffff 100%);
+            background: var(--white);
             border-bottom: 1px solid var(--line);
         }
 
         .pillar__fig img {
             display: block;
-            width: auto;
-            height: 94%;
-            max-width: 88%;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-            transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: var(--pos, 50% 30%);
+            transition: transform .6s cubic-bezier(.2, .8, .2, 1);
         }
 
         .pillar:hover .pillar__fig img {
@@ -1908,10 +1876,6 @@
                 --h: clamp(380px, 56vh, 560px)
             }
 
-            .mf .x__flat {
-                --h: clamp(260px, 36vh, 380px)
-            }
-
             .founder .x__cut {
                 --h: clamp(210px, 25vh, 290px)
             }
@@ -2006,6 +1970,11 @@
             * {
                 animation: none !important;
                 transition-duration: .01ms !important
+            }
+
+            /* a faixa continua girando (mais devagar): e o pedido do cliente */
+            .marquee__track {
+                animation: slide 52s linear infinite !important
             }
 
             .js .rv {
@@ -2128,16 +2097,40 @@
         <!-- ============ MARQUEE ============ -->
         <div class="marquee" aria-hidden="true">
             <div class="marquee__track">
-                <span>Muito além do vôlei</span><span class="marquee__dot"></span>
-                <span>Força <i>com</i> leveza</span><span class="marquee__dot"></span>
-                <span>Funcional</span><span class="marquee__dot"></span>
-                <span>Mindset</span><span class="marquee__dot"></span>
-                <span>Performance</span><span class="marquee__dot"></span>
-                <span>Muito além do vôlei</span><span class="marquee__dot"></span>
-                <span>Força <i>com</i> leveza</span><span class="marquee__dot"></span>
-                <span>Funcional</span><span class="marquee__dot"></span>
-                <span>Mindset</span><span class="marquee__dot"></span>
-                <span>Performance</span><span class="marquee__dot"></span>
+                <div class="marquee__group">
+                    <span>Muito além do vôlei</span><span class="marquee__dot"></span>
+                    <span>Força <i>com</i> leveza</span><span class="marquee__dot"></span>
+                    <span>Funcional</span><span class="marquee__dot"></span>
+                    <span>Mindset</span><span class="marquee__dot"></span>
+                    <span>Performance</span><span class="marquee__dot"></span>
+                    <span>Muito além do vôlei</span><span class="marquee__dot"></span>
+                    <span>Força <i>com</i> leveza</span><span class="marquee__dot"></span>
+                    <span>Funcional</span><span class="marquee__dot"></span>
+                    <span>Mindset</span><span class="marquee__dot"></span>
+                    <span>Performance</span><span class="marquee__dot"></span>
+                    <span>Muito além do vôlei</span><span class="marquee__dot"></span>
+                    <span>Força <i>com</i> leveza</span><span class="marquee__dot"></span>
+                    <span>Funcional</span><span class="marquee__dot"></span>
+                    <span>Mindset</span><span class="marquee__dot"></span>
+                    <span>Performance</span><span class="marquee__dot"></span>
+                </div>
+                <div class="marquee__group">
+                    <span>Muito além do vôlei</span><span class="marquee__dot"></span>
+                    <span>Força <i>com</i> leveza</span><span class="marquee__dot"></span>
+                    <span>Funcional</span><span class="marquee__dot"></span>
+                    <span>Mindset</span><span class="marquee__dot"></span>
+                    <span>Performance</span><span class="marquee__dot"></span>
+                    <span>Muito além do vôlei</span><span class="marquee__dot"></span>
+                    <span>Força <i>com</i> leveza</span><span class="marquee__dot"></span>
+                    <span>Funcional</span><span class="marquee__dot"></span>
+                    <span>Mindset</span><span class="marquee__dot"></span>
+                    <span>Performance</span><span class="marquee__dot"></span>
+                    <span>Muito além do vôlei</span><span class="marquee__dot"></span>
+                    <span>Força <i>com</i> leveza</span><span class="marquee__dot"></span>
+                    <span>Funcional</span><span class="marquee__dot"></span>
+                    <span>Mindset</span><span class="marquee__dot"></span>
+                    <span>Performance</span><span class="marquee__dot"></span>
+                </div>
             </div>
         </div>
 
@@ -2158,14 +2151,7 @@
                         <em>Ele é construído.</em>
                     </p>
                 </div>
-                <div class="rv mf__collage" data-d="2">
-                    <svg class="mf__ball" viewBox="0 0 100 100" aria-hidden="true">
-                        <use href="#nm-ball" />
-                    </svg>
-                    <figure>
-                        <img src="./img/web/ai-saque.webp" width="273" height="461" loading="lazy" decoding="async"
-                            alt="Atleta do Next Mind no salto do saque">
-                    </figure>
+                <div class="rv mf__duo" data-d="2">
                     <figure>
                         <img src="./img/web/ai-medball.webp" width="429" height="876" loading="lazy" decoding="async"
                             alt="Atleta do Next Mind em agachamento com medicine ball">
@@ -2192,8 +2178,9 @@
                     <article class="pillar rv" data-d="1">
                         <span class="pillar__blob" aria-hidden="true"></span>
                         <figure class="pillar__fig">
-                            <img src="./img/web/ai-prancha.webp" width="571" height="771" loading="lazy"
-                                decoding="async" alt="Atleta do Next Mind na prancha, trabalhando estabilidade">
+                            <img src="./img/web/ai-prancha.jpg" width="767" height="967" loading="lazy"
+                                decoding="async" style="--pos:52% 30%"
+                                alt="Atleta do Next Mind na escada de agilidade, no treino funcional">
                         </figure>
                         <span class="pillar__n">01 / Funcional</span>
                         <span class="pillar__mark" aria-hidden="true"></span>
@@ -2205,7 +2192,8 @@
                         <span class="pillar__blob" aria-hidden="true"></span>
                         <figure class="pillar__fig">
                             <img src="./img/web/ai-time.webp" width="475" height="1111" loading="lazy"
-                                decoding="async" alt="Atletas do Next Mind com as mãos unidas antes do treino">
+                                decoding="async" style="--pos:50% 20%"
+                                alt="Atletas do Next Mind com as mãos unidas antes do treino">
                         </figure>
                         <span class="pillar__n">02 / Mindset</span>
                         <span class="pillar__mark" aria-hidden="true"
@@ -2218,7 +2206,8 @@
                         <span class="pillar__blob" aria-hidden="true"></span>
                         <figure class="pillar__fig">
                             <img src="./img/web/ai-saque.webp" width="273" height="461" loading="lazy"
-                                decoding="async" alt="Atleta do Next Mind no salto do saque">
+                                decoding="async" style="--pos:50% 16%"
+                                alt="Atleta do Next Mind no salto do saque">
                         </figure>
                         <span class="pillar__n">03 / Performance</span>
                         <span class="pillar__mark" aria-hidden="true"></span>
