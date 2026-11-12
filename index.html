@@ -587,11 +587,11 @@
             color: var(--pink)
         }
 
-        /* manifesto: bloco de texto a esquerda, as quatro composicoes a direita */
+        /* manifesto: bloco de texto a esquerda, as quatro composicoes em fila a direita */
         .mf {
             display: grid;
-            grid-template-columns: 1.04fr .96fr;
-            gap: clamp(28px, 4.6vw, 64px);
+            grid-template-columns: .82fr 1.18fr;
+            gap: clamp(24px, 3.2vw, 44px);
             align-items: center;
             position: relative;
             z-index: 1;
@@ -599,24 +599,58 @@
 
         .mf__strip {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(6px, 1.2vw, 18px);
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(6px, .9vw, 14px);
+            align-items: end;
         }
 
         .mf__strip figure {
             margin: 0;
-            aspect-ratio: 1 / 1;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
         }
 
         .mf__strip img {
             display: block;
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center bottom;
+            height: auto;
+        }
+
+        /* abaixo de 1200 a fila desce para baixo do texto e ganha altura propria */
+        @media (max-width:1200px) {
+            .mf {
+                grid-template-columns: 1fr
+            }
+
+            .mf__strip {
+                height: clamp(190px, 36vw, 340px);
+                grid-template-rows: 100%
+            }
+
+            .mf__strip figure {
+                height: 100%;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center
+            }
+
+            .mf__strip img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center bottom
+            }
+        }
+
+        /* no desktop a fila encosta na borda direita da tela, para as fotos ficarem grandes */
+        @media (min-width:1201px) {
+            .manifesto .mf {
+                max-width: none;
+                margin-left: max(var(--gutter), calc((100vw - 1180px) / 2 + var(--gutter)));
+                margin-right: 0;
+                padding-left: 0;
+                padding-right: var(--gutter);
+                grid-template-columns: minmax(330px, 430px) 1fr;
+                gap: clamp(28px, 3vw, 48px);
+            }
         }
 
         /* ---------- pillars ---------- */
@@ -788,36 +822,6 @@
         .ct__stack .x {
             display: block;
             width: 100%
-        }
-
-        .ct__detail {
-            position: absolute;
-            z-index: 3;
-            right: -5%;
-            bottom: -9%;
-            width: 46%;
-            border-radius: var(--r-md);
-            overflow: hidden;
-            border: 6px solid var(--white);
-            box-shadow: 0 26px 50px -30px rgba(23, 18, 38, .55);
-            transform: rotate(-3deg);
-        }
-
-        .ct__detail img {
-            display: block;
-            width: 100%;
-            height: auto
-        }
-
-        .ct__athlete {
-            position: absolute;
-            z-index: 3;
-            left: -6%;
-            bottom: -11%;
-            height: auto;
-            width: 46%;
-            max-width: none;
-            filter: drop-shadow(0 22px 26px rgba(75, 22, 232, .22));
         }
 
         /* ---------- founders ---------- */
@@ -1842,12 +1846,6 @@
                 bottom: 0
             }
 
-            .ct__detail {
-                right: -2%;
-                bottom: -6%;
-                width: 42%
-            }
-
             .pillars,
             .founders {
                 grid-template-columns: 1fr 1fr
@@ -2472,10 +2470,6 @@
                         </svg>
                         <img class="x__photo" width="642" height="382" loading="lazy" decoding="async"
                             src="./img/web/ct.jpg" alt="Centro de Treinamento Next Mind no Arouca Barra Clube">
-                    </figure>
-                    <figure class="ct__detail">
-                        <img src="./img/web/ct-box.jpg" width="916" height="700" loading="lazy" decoding="async"
-                            alt="Atleta treinando no Centro de Treinamento Next Mind">
                     </figure>
                 </div>
             </div>
