@@ -806,6 +806,26 @@
             line-height: 1.5
         }
 
+        .info-card__note {
+            margin-top: 10px;
+            font-size: 13.5px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .info-card__note::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--grad);
+            flex: none
+        }
+
         .info-card a {
             font-family: var(--mono);
             font-size: 12px;
@@ -2085,8 +2105,8 @@
                         <svg class="x__poly" viewBox="0 0 420 540" preserveAspectRatio="none" aria-hidden="true">
                             <use href="#nm-cross" />
                         </svg>
-                        <img class="x__cut" width="525" height="877" src="./img/PNG/hero-atleta.png"
-                            alt="Atleta do Next Mind comemorando de braços levantados">
+                        <img class="x__cut" width="1600" height="2399" src="./img/PNG/hero-monique.png"
+                            alt="Monique Pavão atacando de camisa do Sesc no CT Next Mind">
                     </figure>
                 </div>
             </div>
@@ -2219,7 +2239,7 @@
                         <span class="pillar__mark" aria-hidden="true"></span>
                         <h3>Performance</h3>
                         <p>Força, velocidade, desenvolvimento físico, resistência e prevenção de lesões para resultados
-                            de elite.</p>
+                            de verdade.</p>
                     </article>
                 </div>
             </div>
@@ -2233,7 +2253,7 @@
                     <span class="label">Na quadra</span>
                     <h2 class="statement">É aqui que o método <em>vira</em> jogo.</h2>
                     <p class="lead">Saque, ataque, recepção, agilidade: o que a gente repete toda semana aparece no
-                        sábado.</p>
+                        jogo.</p>
                 </div>
             </div>
 
@@ -2333,6 +2353,36 @@
                             <img src="./img/galeria/galeria-10.jpeg" alt="Atletas do CT Next Mind reunidas" width="799"
                                 height="799" loading="lazy" decoding="async">
                         </button>
+                        <button class="reel__item" type="button" data-full="./img/galeria/galeria-13.jpeg"
+                            aria-label="Ampliar foto: atleta do CT Next Mind saltando em quadra">
+                            <img src="./img/galeria/galeria-13.jpeg"
+                                alt="Atleta do CT Next Mind saltando em quadra" width="2774" height="4160"
+                                loading="lazy" decoding="async">
+                        </button>
+                        <button class="reel__item" type="button" data-full="./img/galeria/galeria-14.jpeg"
+                            aria-label="Ampliar foto: atleta do CT Next Mind comemorando o ponto">
+                            <img src="./img/galeria/galeria-14.jpeg"
+                                alt="Atleta do CT Next Mind comemorando o ponto" width="1024" height="683"
+                                loading="lazy" decoding="async">
+                        </button>
+                        <button class="reel__item" type="button" data-full="./img/galeria/galeria-15.jpeg"
+                            aria-label="Ampliar foto: atacante em ação durante partida de vôlei">
+                            <img src="./img/galeria/galeria-15.jpeg"
+                                alt="Atacante em ação durante partida de vôlei" width="800" height="533"
+                                loading="lazy" decoding="async">
+                        </button>
+                        <button class="reel__item" type="button" data-full="./img/galeria/galeria-16.jpeg"
+                            aria-label="Ampliar foto: atleta do CT Next Mind se preparando para o saque">
+                            <img src="./img/galeria/galeria-16.jpeg"
+                                alt="Atleta do CT Next Mind se preparando para o saque" width="1600" height="1066"
+                                loading="lazy" decoding="async">
+                        </button>
+                        <button class="reel__item" type="button" data-full="./img/galeria/galeria-17.jpeg"
+                            aria-label="Ampliar foto: atleta do CT Next Mind atacando na quadra">
+                            <img src="./img/galeria/galeria-17.jpeg"
+                                alt="Atleta do CT Next Mind atacando na quadra" width="3276" height="4096"
+                                loading="lazy" decoding="async">
+                        </button>
                     </div>
                     <div class="reel__group" aria-hidden="true">
                         <button class="reel__item" type="button" tabindex="-1" data-full="./img/galeria/faixa-01.jpeg">
@@ -2414,6 +2464,31 @@
                             <img src="./img/galeria/galeria-10.jpeg" alt="" width="799" height="799" loading="lazy"
                                 decoding="async">
                         </button>
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-13.jpeg">
+                            <img src="./img/galeria/galeria-13.jpeg" alt="" width="2774" height="4160" loading="lazy"
+                                decoding="async">
+                        </button>
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-14.jpeg">
+                            <img src="./img/galeria/galeria-14.jpeg" alt="" width="1024" height="683" loading="lazy"
+                                decoding="async">
+                        </button>
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-15.jpeg">
+                            <img src="./img/galeria/galeria-15.jpeg" alt="" width="800" height="533" loading="lazy"
+                                decoding="async">
+                        </button>
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-16.jpeg">
+                            <img src="./img/galeria/galeria-16.jpeg" alt="" width="1600" height="1066" loading="lazy"
+                                decoding="async">
+                        </button>
+                        <button class="reel__item" type="button" tabindex="-1"
+                            data-full="./img/galeria/galeria-17.jpeg">
+                            <img src="./img/galeria/galeria-17.jpeg" alt="" width="3276" height="4096" loading="lazy"
+                                decoding="async">
+                        </button>
                     </div>
                 </div>
             </div>
@@ -2452,12 +2527,13 @@
                     <h3>Arouca Barra Clube</h3>
                     <p>Um ambiente projetado para a integração total entre performance física e equilíbrio mental.
                         Estrutura completa e equipada para os pilares de Funcional, Mindset e Performance.</p>
-                    <p>Área coberta, peso livre, estações de força, cordas, plyo e espaço para treino funcional em
-                        grupo.</p>
+                    <p>Área coberta, peso livre, estações de força, cordas, pliometria e espaço para treino funcional
+                        em grupo.</p>
                     <div class="info-card">
                         <span class="label">Endereço</span>
                         <address>Av. das Américas, 2300a<br>Barra da Tijuca · Rio de Janeiro — RJ, 22640-101</address>
-                        <p style="margin:14px 0 0"><a
+                        <p class="info-card__note">Estacionamento no local</p>
+                        <p style="margin:12px 0 0"><a
                                 href="https://www.google.com/maps/search/?api=1&query=Av.+das+Am%C3%A9ricas+2300A+Barra+da+Tijuca+Rio+de+Janeiro"
                                 target="_blank" rel="noopener">Abrir no Google Maps →</a></p>
                     </div>
@@ -2489,14 +2565,15 @@
                 <div class="founders founders--duo">
                     <article class="founder rv" data-d="1">
                         <figure class="founder__frame">
-                            <img src="./img/web/monique.jpg" width="1000" height="2146" loading="lazy" decoding="async"
-                                alt="Monique Pavão, sócia do CT Next Mind">
+                            <img src="./img/web/monique-brasil.jpg" width="900" height="824" loading="lazy"
+                                decoding="async" style="object-position:66% 18%"
+                                alt="Monique Pavão com a camisa da Seleção Brasileira">
                             <span class="founder__badge">Seleção Brasileira</span>
                         </figure>
                         <h3>Monique Pavão</h3>
-                        <span class="role">Sócia · Seleção Brasileira</span>
+                        <span class="role">Fundadora · Seleção Brasileira</span>
                         <p>Jogadora profissional de vôlei com forte atuação na Seleção Brasileira e no Sesc RJ Flamengo.
-                            Hexacampeã estadual, tetracampeã da Superliga e campeã de torneios como o Grand Prix e o
+                            Hexacampeã estadual, pentacampeã da Superliga, tricampeã do Grand Prix e campeã do
                             Sul-Americano.</p>
                         <a class="founder__ig" href="https://instagram.com/monique_pavao" target="_blank"
                             rel="noopener">@monique_pavao</a>
